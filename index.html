@@ -4,11 +4,26 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="main.js" defer></script>
     <title>QuizGame</title>
   </head>
   <body>
     <header>Quize Game</header>
-    <div id="question-container"></div>
-    <div id="answerContainer"></div>
+    <div id="container">
+      <div id="question-container">
+        <div id="question">Ez itt a kerdes de nagyon</div>
+      </div>
+      <div id="answer-container" class="btn-group">
+        <button class="btn">Ez egy A valasz</button>
+        <button class="btn">Ez egy B valasz</button>
+        <button class="btn">Ez egy C valasz</button>
+        <button class="btn">Ez egy D valasz</button>
+      </div>
+      <div id="controller-container">
+        <button class="btn" id="start-button">Kezdjuk el</button>
+        <button class="btn" id="next-button">Kovetkezo</button>
+      </div>
+    </div>
   </body>
 </html>
