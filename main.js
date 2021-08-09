@@ -3,8 +3,9 @@ const startButton = document.getElementById("start-button");
 const nextButton = document.getElementById("next-button");
 const answerContainer = document.getElementById("answer-container");
 const gameOverPanel = document.getElementById("showGameOver");
+const scoreDisplay = document.getElementById("showScores");
 
-let randomOrderedQuestions, currentQuestionIndex;
+let randomOrderedQuestions, currentQuestionIndex, scores;
 
 startButton.addEventListener("click", startGame);
 nextButton.addEventListener("click", () => {
@@ -17,6 +18,7 @@ function startGame() {
   gameOverPanel.classList.add("hide");
   randomOrderedQuestions = questions.sort(() => Math.random() - 0.5);
   currentQuestionIndex = 0;
+  scores = 0;
   questionContainer.classList.remove("hide");
   answerContainer.classList.remove("hide");
   setNextQuestion();
@@ -48,6 +50,7 @@ function selectAnswer(e) {
 
 function checkIfCorrect(button) {
   if (button.dataset.correct) {
+    scores++;
     showResult(true);
   } else {
     showResult(false);
@@ -82,6 +85,7 @@ function gameOver() {
   startButton.innerText = "Restart";
   startButton.classList.remove("hide");
   gameOverPanel.classList.remove("hide");
+  scoreDisplay.innerText = `Elert pontok : ${questions.length}/${scores}`;
 }
 
 const questions = [
