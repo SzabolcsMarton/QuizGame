@@ -4,26 +4,28 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fuggles&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <script src="main.js" defer></script>
     <title>QuizGame</title>
   </head>
   <body>
-    <header>Quize Game</header>
-    <div id="container">
-      <div id="question-container">
-        <div id="question">Ez itt a kerdes de nagyon</div>
+    <header>Quiz Game</header>
+    <main>
+      <div id="container">
+        <div id="question-container" class="hide"></div>
+        <div id="answer-container" class="btn-group"></div>
+        <div id="showGameOver" class="hide">Game Over</div>
+        <div id="controller-container">
+          <button class="btn" id="start-button">Kezdjuk el</button>
+          <button class="btn hide" id="next-button">Kovetkezo</button>
+        </div>
       </div>
-      <div id="answer-container" class="btn-group">
-        <button class="btn">Ez egy A valasz</button>
-        <button class="btn">Ez egy B valasz</button>
-        <button class="btn">Ez egy C valasz</button>
-        <button class="btn">Ez egy D valasz</button>
-      </div>
-      <div id="controller-container">
-        <button class="btn" id="start-button">Kezdjuk el</button>
-        <button class="btn" id="next-button">Kovetkezo</button>
-      </div>
-    </div>
+    </main>
   </body>
 </html>
