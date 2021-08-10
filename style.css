@@ -10,7 +10,6 @@ body {
 
 header {
   font-family: "Fuggles", cursive;
-  font-style: oblique;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,7 +58,7 @@ header {
 }
 
 #controller-container {
-  margin-top: 3rem;
+  margin-top: 1rem;
   padding-top: 1rem;
   display: flex;
   justify-content: space-around;
@@ -82,7 +81,7 @@ header {
 
 .btn {
   font-size: 1rem;
-
+  border: 0.2rem grey solid;
   background-color: rgb(170, 205, 206);
   color: rgb(2, 88, 28);
   border-radius: 1rem;
@@ -96,6 +95,7 @@ header {
 .btn:hover {
   border-color: black;
   color: black;
+  font-weight: bold;
 }
 
 .hide {

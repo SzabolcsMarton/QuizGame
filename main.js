@@ -85,7 +85,7 @@ function gameOver() {
   startButton.innerText = "Restart";
   startButton.classList.remove("hide");
   gameOverPanel.classList.remove("hide");
-  scoreDisplay.innerText = `Elert pontok : ${questions.length}/${scores}`;
+  scoreDisplay.innerText = `Elért pontok : ${questions.length}/${scores}`;
 }
 
 const questions = [
@@ -104,7 +104,7 @@ const questions = [
       { text: "Nem igazan.", correct: false },
       { text: "Teljesen persze.", correct: true },
       { text: "Az ki a tosz?", correct: false },
-      { text: "Nem jellemzo", correct: false },
+      { text: "Nem jellemző", correct: false },
     ],
   },
   {
@@ -114,6 +114,38 @@ const questions = [
       { text: "Mitmivan?", correct: false },
       { text: "Az meg mi?", correct: false },
       { text: "Mikipikam", correct: true },
+    ],
+  },
+  {
+    question:
+      "A nagyinál Tarkedlisütő volt a falra akasztva. Mi is ez a tarkedli?",
+    answers: [
+      {
+        text: "Tojásból készült étel, az alakja miatt kellett a speciális edény.",
+        correct: false,
+      },
+      {
+        text: "A tarkedli egy tarhonya féle, jóval nagyobb, már-már nokedli méretű, különleges edényben sütötték.",
+        correct: false,
+      },
+      {
+        text: "A tarkedli reszelt burgonya és liszt keverékéből készült,speciális edényben sütötték.",
+        correct: false,
+      },
+      {
+        text: "A palacsintánál sűrűbb tésztaféle, zsiradékban sütötték, ehhez kellett a speciális edény.",
+        correct: true,
+      },
+    ],
+  },
+  {
+    question:
+      "Nagyanyám konyhájában az asztal mellett egy pitli is volt. Mi ez a pitli?",
+    answers: [
+      { text: "Sótartó faedény", correct: false },
+      { text: "Fűszertartó tálka", correct: false },
+      { text: "Viztartó edény", correct: true },
+      { text: "Ecet troló üveg kancsó", correct: false },
     ],
   },
 ];
