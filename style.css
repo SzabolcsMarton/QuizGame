@@ -30,6 +30,7 @@ header {
   text-align: center;
   font-size: 1.7rem;
   letter-spacing: 0.1rem;
+  border: 0.3rem rgb(9, 61, 9) solid;
   border-radius: 1rem;
   background-color: darkgreen;
   color: rgb(230, 164, 0);
@@ -51,10 +52,12 @@ header {
 
 .good {
   background-color: rgba(0, 146, 0, 0.884);
+  box-shadow: 0.2rem 0.4rem 1 rgb(0, 85, 0);
 }
 
 .wrong {
   background-color: rgb(255, 0, 0);
+  box-shadow: 0.2rem 0.4rem 1 rgb(160, 0, 0);
 }
 
 #controller-container {
@@ -64,8 +67,14 @@ header {
   justify-content: space-around;
 }
 
+#start-button {
+  font-size: 2.5rem;
+  padding: 1rem 2rem;
+  border: 0.3rem rgb(9, 61, 9) solid;
+}
+
 #showGameOver {
-  color: white;
+  color: rgb(230, 164, 0);
   border: 0.2rem rgb(87, 74, 74) solid;
   font-size: 4rem;
   border-radius: 2rem;
@@ -73,6 +82,10 @@ header {
   padding: 2rem 0;
   background-color: rgb(9, 61, 9);
   letter-spacing: 0.4rem;
+}
+
+#game-over-text {
+  font-family: "Fuggles", cursive;
 }
 
 #showScores {
@@ -93,9 +106,16 @@ header {
 }
 
 .btn:hover {
-  border-color: black;
-  color: black;
+  border-color: rgb(95, 94, 94);
+  color: rgb(4, 71, 1);
   font-weight: bold;
+  box-shadow: 0.1rem 0.2rem 1rem rgb(14, 90, 10);
+
+}
+
+.btn:active {
+  background-color: rgb(230, 164, 0);
+  border-color: darkgreen;
 }
 
 .hide {

@@ -6,6 +6,16 @@ const gameOverPanel = document.getElementById("showGameOver");
 const scoreDisplay = document.getElementById("showScores");
 
 let randomOrderedQuestions, currentQuestionIndex, scores;
+let questions;
+let roundOfGame = 10;
+
+async function fetchQuestions() {
+  let res = await fetch("http://localhost:3000/questions");
+  let result = await res.json();
+  return result;
+}
+
+fetchQuestions().then((question) => (questions = question));
 
 startButton.addEventListener("click", startGame);
 nextButton.addEventListener("click", () => {
@@ -44,8 +54,7 @@ function showQuestion(question) {
 }
 
 function selectAnswer(e) {
-  const selectedButton = e.target;
-  checkIfCorrect(selectedButton);
+  checkIfCorrect(e.target);
 }
 
 function checkIfCorrect(button) {
@@ -55,11 +64,9 @@ function checkIfCorrect(button) {
   } else {
     showResult(false);
   }
-  if (randomOrderedQuestions.length > currentQuestionIndex + 1) {
+  if (currentQuestionIndex +1 < roundOfGame) {
     nextButton.classList.remove("hide");
-  } else {
-    gameOver();
-  }
+  } else {setTimeout(gameOver(), 1000)}
 }
 
 function showResult(correct) {
@@ -82,70 +89,8 @@ function resetState() {
 function gameOver() {
   questionContainer.classList.add("hide");
   answerContainer.classList.add("hide");
-  startButton.innerText = "Restart";
+  startButton.innerText = "Új játék";
   startButton.classList.remove("hide");
   gameOverPanel.classList.remove("hide");
-  scoreDisplay.innerText = `Elért pontok : ${questions.length}/${scores}`;
+  scoreDisplay.innerText = `Elért pontok : ${roundOfGame}/${scores}`;
 }
-
-const questions = [
-  {
-    question: "Mennyi 2 x 2 ?",
-    answers: [
-      { text: "1", correct: false },
-      { text: "3", correct: false },
-      { text: "4", correct: true },
-      { text: "6", correct: false },
-    ],
-  },
-  {
-    question: "Mennyire vagy Hujber Feri ?",
-    answers: [
-      { text: "Nem igazan.", correct: false },
-      { text: "Teljesen persze.", correct: true },
-      { text: "Az ki a tosz?", correct: false },
-      { text: "Nem jellemző", correct: false },
-    ],
-  },
-  {
-    question: "Igaz hogy kuzemabatag ?",
-    answers: [
-      { text: "Jah", correct: false },
-      { text: "Mitmivan?", correct: false },
-      { text: "Az meg mi?", correct: false },
-      { text: "Mikipikam", correct: true },
-    ],
-  },
-  {
-    question:
-      "A nagyinál Tarkedlisütő volt a falra akasztva. Mi is ez a tarkedli?",
-    answers: [
-      {
-        text: "Tojásból készült étel, az alakja miatt kellett a speciális edény.",
-        correct: false,
-      },
-      {
-        text: "A tarkedli egy tarhonya féle, jóval nagyobb, már-már nokedli méretű, különleges edényben sütötték.",
-        correct: false,
-      },
-      {
-        text: "A tarkedli reszelt burgonya és liszt keverékéből készült,speciális edényben sütötték.",
-        correct: false,
-      },
-      {
-        text: "A palacsintánál sűrűbb tésztaféle, zsiradékban sütötték, ehhez kellett a speciális edény.",
-        correct: true,
-      },
-    ],
-  },
-  {
-    question:
-      "Nagyanyám konyhájában az asztal mellett egy pitli is volt. Mi ez a pitli?",
-    answers: [
-      { text: "Sótartó faedény", correct: false },
-      { text: "Fűszertartó tálka", correct: false },
-      { text: "Viztartó edény", correct: true },
-      { text: "Ecet troló üveg kancsó", correct: false },
-    ],
-  },
-];
