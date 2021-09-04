@@ -64,9 +64,11 @@ function checkIfCorrect(button) {
   } else {
     showResult(false);
   }
-  if (currentQuestionIndex +1 < roundOfGame) {
+  if (currentQuestionIndex + 1 < roundOfGame) {
     nextButton.classList.remove("hide");
-  } else {setTimeout(gameOver(), 1000)}
+  } else {
+    setTimeout(gameOver(), 1000);
+  }
 }
 
 function showResult(correct) {
